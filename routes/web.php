@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('/contact', function () {
-    return 'contact me broski';
+    return view('home.contact');
 })->name('home.contact');
 
 //route parameter
