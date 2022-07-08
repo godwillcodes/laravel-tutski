@@ -13,24 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//remember to name your routes
 Route::get('/', function () {
     return view('welcome');
 })->name('home.index');
+
 
 Route::get('/contact', function () {
     return 'contact me broski';
 })->name('home.contact');
 
-
+//route parameter
 Route::get('/blog/{id}', function ($id) {
     return 'Post'. $id;
 })->name('blog.show');
 
-
-
+//optional parameter
 Route::get('/posts/{id?}', function ($id = 20) {
     return 'Post'. $id;
 })->name('post.show');
 
+
+// More info on Functions - https://www.youtube.com/watch?v=RIPJEgOrVRc&ab_channel=DaniKrossing
+// You can also use regular expressions to limit what routes users can access
 
 
