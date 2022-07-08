@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //remember to name your routes
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 })->name('home.index');
 
 
