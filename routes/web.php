@@ -26,8 +26,25 @@ Route::get('/contact', function () {
 
 //route parameter
 Route::get('/blog/{id}', function ($id) {
-    return 'Post'. $id;
-})->name('blog.show');
+    $posts = [
+        1 => [
+            'title' => 'Intro to Laravel',
+            'content' => 'This is a short intro to Laravel'
+        ],
+        2 => [
+            'title' => 'Intro to PHP',
+            'content' => 'This is a short intro to PHP'
+        ],
+        3 => [
+            'title' => 'Intro to the mover',
+            'content' => 'This is a short intro to Mover.php'
+        ]
+    ];
+    
+    abort_if(!isset($posts[$id]),404);
+
+    return view('blogs.index',['post' => $posts[$id] ]);
+})->name('blogs.index');
 
 //optional parameter
 Route::get('/posts/{id?}', function ($id = 20) {
