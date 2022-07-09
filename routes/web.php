@@ -15,32 +15,40 @@ use Illuminate\Support\Facades\Route;
 
 
 //remember to name your routes
-Route::get('/', function () {
-    return view('home.index');
-})->name('home.index');
+// Route::get('/', function () {
+//     return view('home.index');
+// })->name('home.index');
 
 
-Route::get('/contact', function () {
-    return view('home.contact');
-})->name('home.contact');
+// Route::get('/contact', function () {
+//     return view('home.contact');
+// })->name('home.contact');
+
+
+// Simple View Rendering Routes - simplify routes as much as possible
+Route::view('/', 'home.index')->name('home.index') ;
+Route::view('/contact', 'home.contact')->name('home.contact');
 
 //route parameter
 Route::get('/blog/{id}', function ($id) {
     $posts = [
         1 => [
             'title' => 'Intro to Laravel',
-            'content' => 'This is a short intro to Laravel'
+            'content' => 'This is a short intro to Laravel',
+            'is_new' => true
         ],
         2 => [
             'title' => 'Intro to PHP',
-            'content' => 'This is a short intro to PHP'
+            'content' => 'This is a short intro to PHP',
+            'is_new' => false
         ],
         3 => [
             'title' => 'Intro to the mover',
-            'content' => 'This is a short intro to Mover.php'
+            'content' => 'This is a short intro to Mover.php',
+            'is_new' => true
         ]
     ];
-    
+
     abort_if(!isset($posts[$id]),404);
 
     return view('blogs.index',['post' => $posts[$id] ]);
