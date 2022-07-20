@@ -116,3 +116,5 @@ Route::get('/fun/away', function () {
 Route::get('/fun/download', function() use($posts) {
   return response()->download(public_path('Godwill.jpeg'), 'face.jpg');
 }); 
+
+// error - Unable to guess the MIME type as no guessers are available (have you enabled the php_fileinfo extension?).
