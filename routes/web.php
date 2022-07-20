@@ -60,6 +60,25 @@ Route::get('/posts/{id?}', function ($id = 20) {
 })->name('post.show');
 
 
+$posts = [
+    1 => [
+      'title' => 'Intro to Laravel',
+      'content' => 'This is a short intro to Laravel',
+      'is_new' => true,
+      'has_comments' => true
+    ],
+    2 => [
+      'title' => 'Intro to PHP',
+      'content' => 'This is a short intro to PHP',
+      'is_new' => false
+    ]
+  ];
+  
+  Route::get('/list', function () use ($posts) {
+    // compact($posts) === ['posts' => $posts])
+    return view('list.index', ['posts' => $posts]);
+  });
+
 // More info on Functions - https://www.youtube.com/watch?v=RIPJEgOrVRc&ab_channel=DaniKrossing
 // You can also use regular expressions to limit what routes users can access
 
