@@ -60,6 +60,8 @@ Route::get('/posts/{id?}', function ($id = 20) {
 })->name('post.show');
 
 
+
+
 $posts = [
     1 => [
       'title' => 'Intro to Laravel',
@@ -83,3 +85,12 @@ $posts = [
 // You can also use regular expressions to limit what routes users can access
 
 
+  //optional parameter
+  Route::get('/fun/responses', function () use($posts) {
+    return response($posts, 201)->header('Content-Type', 'application/json')
+    ->cookie('fancy cookie', 'Godwill Barasa', 3600);
+  })->name('response.show');
+
+  Route::get('/fun/redirect', function () {
+      return redirect('/contact');
+  });
