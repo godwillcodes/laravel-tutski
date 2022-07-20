@@ -94,3 +94,25 @@ $posts = [
   Route::get('/fun/redirect', function () {
       return redirect('/contact');
   });
+
+
+  //nack
+  Route::get('/fun/back', function () {
+    return redirect('/contact');
+});
+
+
+//json
+Route::get('/fun/json', function () use($posts) {
+  return response()->json($posts);
+});
+
+//redirect away
+Route::get('/fun/away', function () {
+  return redirect()->away('https://www.google.com');
+});
+
+//download
+Route::get('/fun/download', function() use($posts) {
+  return response()->download(public_path('Godwill.jpeg'), 'face.jpg');
+}); 
