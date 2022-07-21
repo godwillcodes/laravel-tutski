@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,12 @@ use Illuminate\Support\Facades\Route;
 // })->name('home.contact');
 
 
-// Simple View Rendering Routes - simplify routes as much as possible
-Route::view('/', 'home.index')->name('home.index') ;
-Route::view('/contact', 'home.contact')->name('home.contact');
+// controller actions
+Route::get('/', [HomeController::class, 'home'])
+->name('home.index') ;
+
+Route::get('/contact', [HomeController::class, 'contact'])
+->name('home.contact');
 
 //route parameter
 Route::get('/blog/{id}', function ($id) {
