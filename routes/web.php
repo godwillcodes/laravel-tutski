@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::get('/', [HomeController::class, 'home'])
 
 Route::get('/contact', [HomeController::class, 'contact'])
 ->name('home.contact');
+
+Route::get('/about', AboutController::class)
+->name('home.about');
 
 //route parameter
 Route::get('/blog/{id}', function ($id) {
