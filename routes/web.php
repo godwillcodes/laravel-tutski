@@ -16,15 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-//remember to name your routes
-// Route::get('/', function () {
-//     return view('home.index');
-// })->name('home.index');
 
-
-// Route::get('/contact', function () {
-//     return view('home.contact');
-// })->name('home.contact');
 
 
 // controller actions
